@@ -85,5 +85,6 @@ export class MyService {
 Do whatever you want, it's like 15 lines of code.
 
 # Result
+![alt text][logo]
 
-![alt text](./src/assets/img/result.png "Logo Title Text 1")
+[logo]:https://github.com/stephanebalasse/console-log-service/blob/master/src/assets/img/result.png "Example"
