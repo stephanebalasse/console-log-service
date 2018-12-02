@@ -1,7 +1,7 @@
 {
   "name": "console-log-service",
-  "version": "1.0.0",
-  "description": "Simple logging facade for Angular 7",
+  "version": "1.0.3",
+  "description": "Simple logging facade for Angular 7 with style",
   "keywords": [
     "angular",
     "service",
