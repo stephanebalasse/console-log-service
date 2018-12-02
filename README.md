@@ -28,15 +28,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import the module and model classes.
-import { ConsoleLogServiceModule, Options, LogLevel } from consoleLogService;
+import {ConsoleLogServiceModule, LogLevel, Options} from './console-log-service';
 
 export function ConsoleLogOptions(): Options {
   if (ENV === 'production') {
-    return { logLevel: [LogLevel.Warning,LogLevel.Error],
-             infoStyle: 'background-color:green; color: white; font-weight:bold;padding:5px',
-             debugStyle: 'background-color:blue; color: white; font-weight:bold;padding:5px',
-             warningStyle: 'background-color:orange; color: black; font-weight:bold;padding:5px',
-             errorStyle: 'background-color:red; color: black; font-weight:bold;padding:5px'
+    return {
+            logLevel: [LogLevel.Warning, LogLevel.Error],
+            infoStyle: 'background-color:green; color: white; font-weight:bold;padding:5px',
+            debugStyle: 'background-color:blue; color: white; font-weight:bold;padding:5px',
+            warningStyle: 'background-color:orange; color: black; font-weight:bold;padding:5px',
+            errorStyle: 'background-color:red; color: black; font-weight:bold;padding:5px'
     };
   }
   if (ENV === 'development') {
@@ -62,21 +63,22 @@ Use it:
 
 ```typescript
 import { Injectable } from '@angular/core';
-import { ConsoleLogService } from 'console-log-service.';
+import { ConsoleLogService } from './console-log-service';
 
-@Injectable()
-export class MyService {
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
 
-  constructor(
-    private log: ConsoleLogService
-  ) { }
-
-  private someMethod() {
+  constructor(private log:ConsoleLogService ) {
     this.log.info('Here is a info statement');
-    this.log.debug('Here is a debug statement');
-    this.log.warn('Here is a warn statement');
-    this.log.error('Here is a error statement');
+    this.log.debug('Here is a info statement');
+    this.log.warn('Here is a info statement');
+    this.log.error('Here is a info statement');
   }
+  
 }
 ```
 
