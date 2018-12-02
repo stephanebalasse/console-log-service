@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConsoleLogService } from './console-log-service';
+import { ConsoleLogService } from '../my-lib/src/console-log-service';
 
 
 @Component({
@@ -9,7 +9,6 @@ import { ConsoleLogService } from './console-log-service';
 })
 export class AppComponent {
   title = 'Console log Service';
-
 
   constructor(private log:ConsoleLogService ) {
     this.log.info('Here is a info statement');

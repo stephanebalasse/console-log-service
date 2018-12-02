@@ -1,0 +1,23 @@
+{
+  "name": "console-log-service",
+  "version": "1.0.0",
+  "description": "Simple logging facade for Angular 7",
+  "keywords": [
+    "angular",
+    "service",
+    "log",
+    "style"
+  ],
+  "author": "stephane.balasse@devcafeine.fr",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephanebalasse/console-log-service.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/stephanebalasse/console-log-service/blob/master/README.md",
+  "peerDependencies": {
+    "@angular/common": "^7.0.0",
+    "@angular/core": "^7.0.0"
+  }
+}
+

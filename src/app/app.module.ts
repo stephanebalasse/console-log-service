@@ -2,7 +2,7 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {ConsoleLogServiceModule, LogLevel, Options} from './console-log-service';
+import {ConsoleLogServiceModule, LogLevel, Options} from '../my-lib/src/console-log-service';
 
 export function ConsoleLogOptions(): Options {
     return {

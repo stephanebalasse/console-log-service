@@ -28,7 +28,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
 // Import the module and model classes.
-import {ConsoleLogServiceModule, LogLevel, Options} from './console-log-service';
+import {ConsoleLogServiceModule, LogLevel, Options} from 'console-log-service';
 
 export function ConsoleLogOptions(): Options {
   if (ENV === 'production') {
@@ -63,7 +63,7 @@ Use it:
 
 ```typescript
 import { Injectable } from '@angular/core';
-import { ConsoleLogService } from './console-log-service';
+import { ConsoleLogService } from 'console-log-service';
 
 @Component({
   selector: 'app-root',

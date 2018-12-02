@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 
 import {LogLevel} from './log-level.enum'
-import {Log} from "@angular/core/testing/src/logger";
+
 
 export class Options {
   logLevel: LogLevel[];
@@ -52,9 +52,9 @@ export class ConsoleLogService {
    * make a console.log with the message in parameter
    * for environments that can display Info
    *
-   * @param {any} message
-   * @param {string} file : name of the file where the log console is running
-   * @param {number} row : row number on which the consolelog runs
+   *  message
+   * file : name of the file where the log console is running
+   * row : row number on which the consolelog runs
    */
   public info(message?: any, file?: string, row?: number): void {
     if (this._logLevel.includes(LogLevel.Info)) {
@@ -68,9 +68,9 @@ export class ConsoleLogService {
    * make a console.log with the message in parameter
    * for environments that can display debugs
    *
-   * @param {any} message
-   * @param {string} file : name of the file where the log console is running
-   * @param {number} row : row number on which the consolelog runs
+   * message
+   * file : name of the file where the log console is running
+   * row : row number on which the consolelog runs
    */
   debug(message?: any, file?: string, row?: number): void {
     if (this._logLevel.includes(LogLevel.Debug)) {
@@ -84,9 +84,9 @@ export class ConsoleLogService {
    * make a console.log with the message in parameter
    * for environments that can display warning
    *
-   * @param {any} message
-   * @param {string} file : name of the file where the log console is running
-   * @param {number} row : row number on which the consolelog runs
+   *  message
+   * file : name of the file where the log console is running
+   * row : row number on which the consolelog runs
    */
   warn(message?: any, file?: string, row?: number): void {
     if (this._logLevel.includes(LogLevel.Warning)) {
@@ -100,9 +100,9 @@ export class ConsoleLogService {
    * make a console.log with the message in parameter
    * for environments that can display error
    *
-   * @param {any} message
-   * @param {string} file : name of the file where the log console is running
-   * @param {number} row : row number on which the consolelog runs
+   * message
+   * file : name of the file where the log console is running
+   * row : row number on which the consolelog runs
    */
   error(message?: any, file?: string, row?: number): void {
     if (this._logLevel.includes(LogLevel.Error)) {

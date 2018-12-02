@@ -1,0 +1,11 @@
+{
+  "$schema": "../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../dist/console-log-service",
+  "deleteDestPath": false,
+  "lib": {
+    "flatModuleFile": "console-log-service",
+    "entryFile": "./public_api.ts",
+    "umdId": "ngb",
+    "amdId": "ngb"
+  }
+}
