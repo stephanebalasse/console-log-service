@@ -1,30 +1,88 @@
-# Testd
+# console-log-service
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.5.
 
-## Development server
+Simple logging facade for Angular 7 supporting build-time environment specific options and, most importantly, AOT.
+Use it as-is, or as a base to build out your own logging needs.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+To install this library, run:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+$ npm install console-log-service --save
+```
 
-## Build
+You can configure the logger via the module's `forRoot` function by passing a function that produces an `Options` object.
+Reasoning for this is so that you can have environment specific options, IE those that rely on something like Webpack defines
+or some other mechanism that injects globals into your code at build time, and still be ok with Angular's AOT compiler.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+The code is heavily inspired by other loggers for Angular, but this one is packaged properly according to the Angular
+guidelines and works with AOT.
 
-## Running unit tests
+Import and configure it:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```typescript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-## Running end-to-end tests
+import { AppComponent } from './app.component';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+// Import the module and model classes.
+import { ConsoleLogServiceModule, Options, LogLevel } from consoleLogService;
 
-## Further help
+export function ConsoleLogOptions(): Options {
+  if (ENV === 'production') {
+    return { logLevel: [LogLevel.Warning,LogLevel.Error],
+             infoStyle: 'background-color:green; color: white; font-weight:bold;padding:5px',
+             debugStyle: 'background-color:blue; color: white; font-weight:bold;padding:5px',
+             warningStyle: 'background-color:orange; color: black; font-weight:bold;padding:5px',
+             errorStyle: 'background-color:red; color: black; font-weight:bold;padding:5px'
+    };
+  }
+  if (ENV === 'development') {
+    return { logLevel: [LogLevel.Info,LogLevel.Debug,LogLevel.Warning,LogLevel.Error] };
+  }
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    ConsoleLogServiceModule.forRoot(ConsoleLogOptions),
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+Use it:
+
+```typescript
+import { Injectable } from '@angular/core';
+import { ConsoleLogService } from 'console-log-service.';
+
+@Injectable()
+export class MyService {
+
+  constructor(
+    private log: ConsoleLogService
+  ) { }
+
+  private someMethod() {
+    this.log.info('Here is a info statement');
+    this.log.debug('Here is a debug statement');
+    this.log.warn('Here is a warn statement');
+    this.log.error('Here is a error statement');
+  }
+}
+```
+
+## License
+
+Do whatever you want, it's like 15 lines of code.
 
 # Result
 
