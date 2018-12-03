@@ -76,7 +76,7 @@ export class ConsoleLogService {
     if (this._logLevel.includes(LogLevel.Debug)) {
       let numberRow: string = (row) ? row + '' : '';
       let nameFile: string = (file) ? file + ':' + numberRow : '';
-      console.log('%cDebug ' + nameFile, this._styleDebug, message);
+      console.debug('%cDebug ' + nameFile, this._styleDebug, message);
     }
   }
 
@@ -92,7 +92,7 @@ export class ConsoleLogService {
     if (this._logLevel.includes(LogLevel.Warning)) {
       let numberRow: string = (row) ? row + '' : '';
       let nameFile: string = (file) ? file + ':' + numberRow : '';
-      console.log('%cWarning ' + nameFile, this._styleWarning, message);
+      console.warn('%cWarning ' + nameFile, this._styleWarning, message);
     }
   }
 
@@ -108,7 +108,7 @@ export class ConsoleLogService {
     if (this._logLevel.includes(LogLevel.Error)) {
       let numberRow: string = (row) ? row + '' : '';
       let nameFile: string = (file) ? file + ':' + numberRow : '';
-      console.log('%cError ' + nameFile, this._styleError, message);
+      console.error('%cError ' + nameFile, this._styleError, message);
     }
   }
 }

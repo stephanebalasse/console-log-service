@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ConsoleLogService } from '../my-lib/src/console-log-service';
+import { ConsoleLogService } from '../../my-lib/src/console-log-service';
 
 
 @Component({
